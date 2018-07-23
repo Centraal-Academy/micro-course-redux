@@ -1,7 +1,6 @@
-function rootReducer (state = {}, action) {
+function rootReducer (state = { ki: 0 }, action) {
   if (action.type === 'INCREMENT_KI') {
-    const ki = state.ki !== undefined ? state.ki + 1 : 0
-    return Object.assign({}, state, { ki })
+    return Object.assign({}, state, { ki: state.ki + 1 })
   }
 
   return state
@@ -9,6 +8,7 @@ function rootReducer (state = {}, action) {
 
 function createStore (reducer) {
   var state
+  const suscriptors = []
 
   const getState = function () {
     return state
@@ -16,14 +16,22 @@ function createStore (reducer) {
 
   const dispatch = function (action) {
     state = reducer(state, action)
+    suscriptors.forEach(suscriptor => { suscriptor() })
   }
 
-  return { getState, dispatch }
+  const suscribe = function (suscriptor) {
+    suscriptors.push(suscriptor)
+  }
+
+  return { getState, dispatch, suscribe }
+}
+
+function printKi () {
+  console.log(STORE.getState())
 }
 
 const STORE = createStore(rootReducer)
+STORE.suscribe(printKi)
 
 STORE.dispatch({ type: 'INCREMENT_KI' })
-console.log(STORE.getState())
 STORE.dispatch({ type: 'INCREMENT_KI' })
-console.log(STORE.getState())
