@@ -29,9 +29,11 @@ function rootReducer (state = 0, action) {
 
 const store = Redux.createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
-store.subscribe(() => {
+function updateUI () {
   document.getElementById('result').innerText = store.getState()
-})
+}
+
+store.subscribe(updateUI)
 
 document.getElementById('add').addEventListener('click', (e) => {
   e.preventDefault()
