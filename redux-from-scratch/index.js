@@ -1,3 +1,6 @@
+const INCREMENT_KI = {
+  type: 'INCREMENT_KI'
+}
 function rootReducer (state = { ki: 0 }, action) {
   if (action.type === 'INCREMENT_KI') {
     return Object.assign({}, state, { ki: state.ki + 1 })
@@ -33,5 +36,5 @@ function printKi () {
 const STORE = createStore(rootReducer)
 STORE.suscribe(printKi)
 
-STORE.dispatch({ type: 'INCREMENT_KI' })
-STORE.dispatch({ type: 'INCREMENT_KI' })
+STORE.dispatch(INCREMENT_KI)
+STORE.dispatch(INCREMENT_KI)
