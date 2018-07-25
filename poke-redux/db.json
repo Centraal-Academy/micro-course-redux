@@ -1,0 +1,19 @@
+{
+  "pokemons": {
+    "01": {
+      "id": "01",
+      "name": "Bulbasaur",
+      "image": "http://static.pokemonpets.com/images/monsters-images-300-300/1-Bulbasaur.png"
+    },
+    "04": {
+      "id": "04",
+      "name": "Charmander",
+      "image": "http://static.pokemonpets.com/images/monsters-images-300-300/4-Charmander.png"
+    },
+    "07": {
+      "id": "07",
+      "name": "Squirtle",
+      "image": "http://static.pokemonpets.com/images/monsters-images-300-300/7-Squirtle.png"
+    }
+  }
+}
