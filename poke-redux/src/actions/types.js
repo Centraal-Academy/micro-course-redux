@@ -1,0 +1,7 @@
+export const ADD_POKEMONS = 'ADD_POKEMONS'
+
+export const LIKE_POKEMON = 'LIKE_POKEMON'
+
+export const SEARCH_POKEMON = 'SEARCH_POKEMON'
+
+export const FETCH_POKEMON = 'FETCH_POKEMON'
