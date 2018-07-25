@@ -16,12 +16,12 @@ function substract (value) {
   }
 }
 
-function rootReducer (state = 0, action) {
+function rootReducer (state = {counter: 0}, action) {
   switch (action.type) {
     case CALCULATOR_ADD:
-      return state + action.value
+      return Object.assign({}, state, { counter: state.counter + action.value })
     case CALCULATOR_SUBSTRACT:
-      return state - action.value
+      return Object.assign({}, state, { counter: state.counter - action.value })
     default:
       return state
   }
@@ -30,7 +30,7 @@ function rootReducer (state = 0, action) {
 const store = Redux.createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 function updateUI () {
-  document.getElementById('result').innerText = store.getState()
+  document.getElementById('result').innerText = store.getState().counter
 }
 
 store.subscribe(updateUI)
