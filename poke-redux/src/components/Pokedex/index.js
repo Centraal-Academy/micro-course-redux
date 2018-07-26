@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import Container from '../Container'
 import Search from './Search'
 import PokeList from './PokeList'
-import { fetchPokemons, capturePokemon, searchPokemon } from '../../actions'
-
+import { capturePokemon, searchPokemon } from '../../actions'
+import { FETCH_POKEMON } from '../../actions/types'
 class Pokedex extends React.Component {
   constructor (props) {
     super(props)
@@ -22,7 +22,8 @@ class Pokedex extends React.Component {
   }
 
   componentDidMount () {
-    this.props.dispatch(fetchPokemons())
+    this.props.dispatch({ type: FETCH_POKEMON })
+    // this.props.dispatch(fetchPokemons())
   }
 
   render () {
