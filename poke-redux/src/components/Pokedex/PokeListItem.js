@@ -3,7 +3,7 @@ import Pokemon from './Pokemon'
 
 function PokeListItem (props) {
   return (
-    <li onClick={props.onClick ? props.onClick(props.pokemon) : null}>
+    <li onClick={() => props.onClick(props.pokemon)}>
       <Pokemon {...props.pokemon} />
     </li>
   )
