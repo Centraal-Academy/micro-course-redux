@@ -2,14 +2,15 @@ import React from 'react'
 
 function Search (props) {
   return (
-    <form onSubmit={props.onSubmit}>
-      <input />
+    <form>
+      <input onChange={props.onChange} value={props.query} />
     </form>
   )
 }
 
 Search.defaultProps = {
-  onSubmit: function () {}
+  onChange: function () {},
+  query: ''
 }
 
 export default Search
