@@ -1,14 +1,14 @@
 import { ADD_POKEMONS, LIKE_POKEMON, CAPTURE_POKEMON } from '../actions/types'
 
-function addPokemonsReducer (state = {}, action) {
+export function addPokemonsReducer (state = {}, action) {
   return { ...state, ...action.payload.pokemons }
 }
 
-function likePokemonReducer (state = {}, action) {
+export function likePokemonReducer (state = {}, action) {
   return { ...state, like: !state.like }
 }
 
-function capturePokemonReducer (state = {}, action) {
+export function capturePokemonReducer (state = {}, action) {
   return { ...state, captured: true }
 }
 
