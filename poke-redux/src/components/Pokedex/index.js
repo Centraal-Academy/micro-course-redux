@@ -5,7 +5,7 @@ import Search from './Search'
 import PokeList from './PokeList'
 import { capturePokemon, searchPokemon } from '../../actions'
 import { FETCH_POKEMON } from '../../actions/types'
-class Pokedex extends React.Component {
+export class Pokedex extends React.Component {
   constructor (props) {
     super(props)
     this.capture = this.capture.bind(this)
