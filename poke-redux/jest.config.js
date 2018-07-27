@@ -1,4 +1,6 @@
 module.exports = {
   rootDir: 'tests',
-  testMatch: ['**/*-test.js']
+  testMatch: ['**/*-test.js'],
+  setupTestFrameworkScriptFile: './setup.js',
+  snapshotSerializers: ['enzyme-to-json/serializer']
 }
