@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Redux</title>
+</head>
+<body>
+  <script>
+    function createStore (reducer) {
+      let state
+
+      return {
+        distpatch: function (action) {
+          state = reducer(state, action)
+        },
+        getState: function () {
+          return state
+        }
+      }
+    }
+
+    function rootReducer (state = 0, action) {
+      if (action.type === 'ADD') {
+        return state + action.payload
+      }
+
+      return state
+    }
+
+    const store = createStore(rootReducer)
+    
+    const ADD_CREATOR = (value) => ({
+      type: 'ADD',
+      payload: value
+    })
+  </script>
+</body>
+</html>
