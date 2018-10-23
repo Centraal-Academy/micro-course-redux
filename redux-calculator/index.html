@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.1/redux.min.js"></script>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Redux Math Operations</title>
+</head>
+<body>
+  <script>
+    function rootReducer (state = 0, action) {
+      if (action.type === 'ADD') {
+        return state + action.payload
+      }
+
+      if (action.type === 'MINUS') {
+        return state - action.payload
+      }
+
+      return state
+    }
+
+    const store = Redux.createStore(rootReducer)
+    
+    const ADD = (value) => ({
+      type: 'ADD',
+      payload: value
+    })
+    
+    const MINUS = (value) => ({
+      type: 'MINUS',
+      payload: value
+    })
+
+  </script>
+</body>
+</html>
