@@ -16,12 +16,12 @@ function substract (value) {
   }
 }
 
-function rootReducer (state = {counter: 0}, action) {
+function rootReducer (state = { counter: 0 }, action) {
   switch (action.type) {
     case CALCULATOR_ADD:
-      return Object.assign({}, state, { counter: state.counter + action.value })
+      return { ...state, counter: state.counter + action.value }
     case CALCULATOR_SUBSTRACT:
-      return Object.assign({}, state, { counter: state.counter - action.value })
+      return { ...state, counter: state.counter - action.value }
     default:
       return state
   }
