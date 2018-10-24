@@ -16,14 +16,21 @@ function substract (value) {
   }
 }
 
-function rootReducer (state = { counter: 0 }, action) {
+function counterReducer (state = 0, action) {
   switch (action.type) {
     case CALCULATOR_ADD:
-      return { ...state, counter: state.counter + action.value }
+      return state + action.value
     case CALCULATOR_SUBSTRACT:
-      return { ...state, counter: state.counter - action.value }
+      return state - action.value
     default:
       return state
+  }
+}
+
+function rootReducer (state = {}, action) {
+  return {
+    ...state,
+    counter: counterReducer(state.counter, action)
   }
 }
 
